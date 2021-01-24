@@ -12,16 +12,15 @@ class CityModel:
         return predictions
 
     def show_regression(self, regressors):
-        pass
-#        plt.figure(figsize=(8,7))
-#        ax = plt.axes()
-#        ax.title(self.name)
-#        ax.scatter(regressors, self.data)
+        plt.figure(figsize=(8,7))
+        ax = plt.axes()
+        ax.title(self.name)
+        ax.scatter(regressors, self.data)
 
-#        x_new = np.linspace(0, 30, 100)
-#        y_new = self.model.predict(x_new[:, np.newaxis])
-#        ax.plot(x_new, y_new)
+        x_new = np.linspace(0, 30, 100)
+        y_new = self.model.predict(x_new[:, np.newaxis])
+        ax.plot(x_new, y_new)
 
-#        ax.axis('tight')
+        ax.axis('tight')
 
-#        plt.show(block=True)
+        plt.show(block=True)

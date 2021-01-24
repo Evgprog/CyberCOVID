@@ -101,7 +101,27 @@ for row in ndata:
     city_models = np.append(city_models, model)
 
 # TODO 3:
-#np.apply_along_axis(calculate_regression_params, 1, ndata)
+#call rows of ndata
+# y of function
+#function will bb called as long as there rows
+#will get one parametr only of content of rows
+def rows_calculate(y):
+    city_name = y[0]
+    model = linear_model.LinearRegression()
+    #turning data into one row for analysis
+    X = x.reshape(-1, 1)
+    Y = y.reshape(-1, 1)
+
+    # Split the dataset to training part and test part
+    x_train, x_test, y_train, y_test = train_test_split(X, Y, test_size=0.2, random_state=1)
+    model.fit(x_train, y_train)
+    score = model.score(x_test, y_test)
+    print('Score: {}. Regression Params. Intercept: {} Coefficient: {}'.format(score, model.intercept_[0], model.coef_[0, 0]))
+
+    return CityModel(y, model, name)
+
+np.apply_along_axis(calculate_regression_params, 1, ndata )
+
 
 with dates:
     for i in np.arange(0, 4):
