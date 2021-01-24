@@ -105,7 +105,7 @@ for row in ndata:
 # y of function
 #function will bb called as long as there rows
 #will get one parametr only of content of rows
-def rows_calculate(y):
+def rows_calculation(y):
     city_name = y[0]
     model = linear_model.LinearRegression()
     #turning data into one row for analysis
@@ -115,10 +115,11 @@ def rows_calculate(y):
     # Split the dataset to training part and test part
     x_train, x_test, y_train, y_test = train_test_split(X, Y, test_size=0.2, random_state=1)
     model.fit(x_train, y_train)
+    #if model score more then 0.8 score calculated on test
     score = model.score(x_test, y_test)
     print('Score: {}. Regression Params. Intercept: {} Coefficient: {}'.format(score, model.intercept_[0], model.coef_[0, 0]))
 
-    return CityModel(y, model, name)
+    return CityModel(y, model,name,score)
 
 np.apply_along_axis(calculate_regression_params, 1, ndata )
 
