@@ -1,13 +1,14 @@
- #CyberCovid
+ #   CyberCovid
  
- ##Project's aims: 
+ ##  Project's aims: 
  
- To allow localizaton of quarantine policy measures due to early identification of covid spread
- Currently a more binary policy is being used where all or no cities are quarantied
- the measures for infectios deseace prevention were used on the number o admitted patients
- risk analysis is done on overall number of patients which were identified
- and earlier detection based on the  prediction of possible number off patients might allow a more proactive measure to take place
+ To allow localizaton of quarantine policy measures due to early identification of covid spread.
+ Currently, a more binary policy is being used where all or no cities are quarantied.
+ The measures for infectios deseace prevention were used on the number of admitted patients.
+ Risk analysis is done on overall number of patients which were identified  and earlier detection based on the  prediction of possible number off patients might allow a more   proactive measure to take place
+ 
  The structure of analysis :
+ 
  Getting data regarding number of patients by city
  Normalizing data, fixing mistakes
  Creating predictions for spreading rate per city
