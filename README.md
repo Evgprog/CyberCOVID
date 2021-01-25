@@ -1,5 +1,7 @@
  #CyberCovid
+ 
  ##Project's aims: 
+ 
  To allow localizaton of quarantine policy measures due to early identification of covid spread
  Currently a more binary policy is being used where all or no cities are quarantied
  the measures for infectios deseace prevention were used on the number o admitted patients
