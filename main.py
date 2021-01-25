@@ -116,7 +116,7 @@ for row in ndata:
 #call rows of ndata
 # y of function
 #function will bb called as long as there rows
-#will get one parametr only of content of rows
+#will get one parameter only of content of rows
 def rows_calculation(y,enumarated_dates):
     city_name = y[0]
     model = linear_model.LinearRegression()
