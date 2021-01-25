@@ -13,7 +13,22 @@ Created on Mon Jan 11 23:40:00 2021
 # Getting data regarding number of patients by city
 # Normalizing data, fixing mistakes
 # Creating predictions for spreading rate per city
-# Using formula identified in the artickle x35
+# Using formula identified in the article x35
+#Read me for GITHUB
+# The code performs predictions of potential spread of covid 19 in Israil's cities
+# The codes's structure consist of the following parts:
+# 1. Data upload from a website that contains a history of patients dinamycs  per city
+# 2. Data  insertion into a pandas dataframework
+# 3. Cleaning and prepearing of dataframe for analysis
+# 4. Creating several models and classes for linear regression analysis and predictions
+# 5. Creating a trashold for data set on 08 score
+#  5. Applying models for each city dataset
+#
+
+
+
+
+#
 import io
 import numpy as np
 import numpy.ma as ma
@@ -86,9 +101,6 @@ def calculate_regression_params(x, y, name):
 
     return CityModel(y, model, name)
 
-
-
-
 # 4. Calculate the model's parameters for all cities (rows)
 # As an output of this step we have the regression coefficients for each city!!!
 #
@@ -105,7 +117,7 @@ for row in ndata:
 # y of function
 #function will bb called as long as there rows
 #will get one parametr only of content of rows
-def rows_calculation(y):
+def rows_calculation(y,enumarated_dates):
     city_name = y[0]
     model = linear_model.LinearRegression()
     #turning data into one row for analysis
@@ -122,16 +134,26 @@ def rows_calculation(y):
     return CityModel(y, model,name,score)
 
 np.apply_along_axis(calculate_regression_params, 1, ndata )
-
-
+"Setting trashold for for data analysis "
+K=0.8
+# checking score
 with dates:
     for i in np.arange(0, 4):
-        city_models[i].show_regression(dates.labels)
+        if score > K:
+           city_models[i].show_regression(dates.labels)
 
 
 # 5. Apply calculated regresion model in order to predict the spread
 #       of infected people for each city
 
+
+TO DO nw file  for function
+
+TO do city model takes only self mode    must take from oanothe class that will with
+create another class that city modes
+and leae ciry model the nME
+AND NNEW CASS WITH DIFFERENT
+HOW TO SAE DEPENECES , REQUEREMNTS FOR PUSHNG PYTHON FILE PYCHARM
 
 
 
