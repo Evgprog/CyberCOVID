@@ -1,25 +1,11 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import city_row_model
 
-class city_model_name:
-    def __init__(self, data, regression_model, city_name,score):
-        self.data = data
-        self.model = regression_model
-        self.name = city_name[::-1]
-        self.score= score
+class city_model_name(city_row_model):
+    def __init__(self, city_nam):
+       self.name = city_name[::-1]
 
-    def predict(self, regressors):
-        predictions = self.model.predict(regressors[:, np.newaxis])
-        return predictions
 
-    def show_regression(self, regressors):
-        plt.figure(figsize=(8,7))
-        ax = plt.axes()
-        ax.title(self.name)
-        ax.scatter(regressors, self.data)
 
-        x_new = np.linspace(0, 30, 100)
-        y_new = self.model.predict(x_new[:, np.newaxis])
-        ax.plot(x_new, y_new)
-        ax.axis('tight')
-        plt.show(block=True)
+

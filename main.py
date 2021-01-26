@@ -24,10 +24,6 @@ Created on Mon Jan 11 23:40:00 2021
 # 5. Creating a trashold for data set on 08 score
 #  5. Applying models for each city dataset
 #
-
-
-
-
 #
 import io
 import numpy as np
@@ -117,7 +113,8 @@ for row in ndata:
 # y of function
 #function will bb called as long as there rows
 #will get one parameter only of content of rows
-def rows_calculation(y,enumarated_dates):
+def rows_calculation(ndate):
+    dates
     city_name = y[0]
     model = linear_model.LinearRegression()
     #turning data into one row for analysis
@@ -131,15 +128,16 @@ def rows_calculation(y,enumarated_dates):
     score = model.score(x_test, y_test)
     print('Score: {}. Regression Params. Intercept: {} Coefficient: {}'.format(score, model.intercept_[0], model.coef_[0, 0]))
 
-    return CityModel(y, model,name,score)
+    return city_name(y, model,name,score)
+regcalcul=np.array([])
+regcalcul= np.apply_along_axis(calculate_regression_params, 1, ndata )
 
-np.apply_along_axis(calculate_regression_params, 1, ndata )
 "Setting trashold for for data analysis "
-K=0.8
+trashold=0.8
 # checking score
 with dates:
     for i in np.arange(0, 4):
-        if score > K:
+        if city_name.score > trashold:
            city_models[i].show_regression(dates.labels)
 
 
@@ -147,17 +145,16 @@ with dates:
 #       of infected people for each city
 
 
-TO DO nw file  for function
-
-TO do city model takes only self mode    must take from oanothe class that will with
-create another class that city modes
-and leae ciry model the nME
-AND NNEW CASS WITH DIFFERENT
-HOW TO SAE DEPENECES , REQUEREMNTS FOR PUSHNG PYTHON FILE PYCHARM
 
 
 
-
+#Never call file with Big letters
+#To Do 1 " requerments for python pushing describes dependencies numpy version
+#To Do 2 class inheretence  name from row (1)
+#To do 3 new class creation logical regression
+#to d 4 saving apply funtion results to array
+#To do score
+# to put function
 
 
 
