@@ -22,9 +22,8 @@ Created on Mon Jan 11 23:40:00 2021
 # 3. Cleaning and prepearing of dataframe for analysis
 # 4. Creating several models and classes for linear regression analysis and predictions
 # 5. Creating a trashold for data set on 08 score
-#  5. Applying models for each city dataset
-#
-#
+# 5. Applying models for each city dataset
+
 import io
 import numpy as np
 import numpy.ma as ma
