@@ -14,7 +14,7 @@ Created on Mon Jan 11 23:40:00 2021
 # Normalizing data, fixing mistakes
 # Creating predictions for spreading rate per city
 # Using formula identified in the article x35
-#Read me for GITHUB
+# Read me for GITHUB
 # The code performs predictions of potential spread of covid 19 in Israil's cities
 # The codes's structure consist of the following parts:
 # 1. Data upload from a website that contains a history of patients dinamycs  per city
@@ -29,8 +29,10 @@ import numpy as np
 import numpy.ma as ma
 import pandas as pd
 import requests
+import platform
+print('Python platform: {}'.format(platform.architecture()[0]))
 
-from city_model import CityModel
+from regressions import calculate_regression_params
 from enumarated_dates import EnumeratedDates
 
 # Check libraries' versions
@@ -44,8 +46,6 @@ print('{} version: {}'.format(pd.__name__, pd.__version__))
 url = "https://raw.githubusercontent.com/idandrd/israel-covid19-data/master/CityData.csv"
 s = requests.get(url).content
 _df = pd.read_csv(io.StringIO(s.decode('utf-8')))
-
-#
 # 2. Prepare the downloaded data for further analysis
 #
 # We're going to calculate the regression params for each
@@ -62,108 +62,49 @@ _df = pd.read_csv(io.StringIO(s.decode('utf-8')))
 df = _df.fillna(0)
 # Replace cells containing "-" with zeros
 df.replace('-', 0., inplace=True)
-
 # 2b. Prepare the dates obtained from the DataFrame to participate in the regression:
 # just enumerate all the dates, i.e. convert them to the running number
 # Output: enumeratedDates array
 keys = df.keys()
 dates = EnumeratedDates(keys[2:])
 
+
 # We're done with data preparation.
 # let's see how it looks like
-#print(df)
-
-
-# 3. Calculate the regression model params
-# The function below will be called for each city (row) in the prepared dataset
-# Input: x - regressors (dates)
-#        y - labels (infected people)
-# Output: regression's parameters
-def calculate_regression_params(x, y, name):
-    from sklearn import linear_model
-    from sklearn.model_selection import train_test_split
-
-    model = linear_model.LinearRegression()
-    #turning data into one row for analysis
-    X = x.reshape(-1, 1)
-    Y = y.reshape(-1, 1)
-
-    # Split the dataset to training part and test part
-    x_train, x_test, y_train, y_test = train_test_split(X, Y, test_size=0.2, random_state=1)
-    model.fit(x_train, y_train)
-    score = model.score(x_test, y_test)
-    print('Score: {}. Regression Params. Intercept: {} Coefficient: {}'.format(score, model.intercept_[0], model.coef_[0, 0]))
-
-    return CityModel(y, model, name)
+# print(df)
 
 # 4. Calculate the model's parameters for all cities (rows)
 # As an output of this step we have the regression coefficients for each city!!!
-#
-
 city_models = np.array([])
 ndata = df.to_numpy()
+model=np.array([])
+
+#  First two rows are defined as 'City' and 'Population'. We skip them
+#  we upload each row in ndata - dataframe that contains cities info into a function City model which  calculates regression
+#  the function returns y, x, name, score
 for row in ndata:
-    #  First two rows are defined as 'City' and 'Population'. We skip them
     model = calculate_regression_params(dates.indices, row[2:], row[0])
     city_models = np.append(city_models, model)
 
-# TODO 3:
-#call rows of ndata
-# y of function
-#function will bb called as long as there rows
-#will get one parameter only of content of rows
-def rows_calculation(ndate):
-    dates
-    city_name = y[0]
-    model = linear_model.LinearRegression()
-    #turning data into one row for analysis
-    X = x.reshape(-1, 1)
-    Y = y.reshape(-1, 1)
+#print(city_models)
+# regcalcul=np.array([])
+# regcalcul= np.apply_along_axis(calculate_regression_params, 1, ndata )
 
-    # Split the dataset to training part and test part
-    x_train, x_test, y_train, y_test = train_test_split(X, Y, test_size=0.2, random_state=1)
-    model.fit(x_train, y_train)
-    #if model score more then 0.8 score calculated on test
-    score = model.score(x_test, y_test)
-    print('Score: {}. Regression Params. Intercept: {} Coefficient: {}'.format(score, model.intercept_[0], model.coef_[0, 0]))
-
-    return city_name(y, model,name,score)
-regcalcul=np.array([])
-regcalcul= np.apply_along_axis(calculate_regression_params, 1, ndata )
-
-"Setting trashold for for data analysis "
-trashold=0.8
-# checking score
+THRESHOLD = 0.8
+# checking score with a  THRESHOlD
 with dates:
     for i in np.arange(0, 4):
-        if city_name.score > trashold:
-           city_models[i].show_regression(dates.labels)
-
+        if city_models[i].score > THRESHOLD:
+            city_models[i].display(dates.labels)
 
 # 5. Apply calculated regresion model in order to predict the spread
 #       of infected people for each city
 
 
-
-
-
-#Never call file with Big letters
-#To Do 1 " requerments for python pushing describes dependencies numpy version
-#To Do 2 class inheretence  name from row (1)
-#To do 3 new class creation logical regression
-#to d 4 saving apply funtion results to array
-#To do score
+# Never call file with Big letters
+# To Do 1 " requerments for python pushing describes dependencies numpy version
+# To Do 2 class inheretence  name from row (1)
+# To do 3 new class creation logical regression
+# to d 4 saving apply funtion results to array
+# To do score
 # to put function
-
-
-
-
-
-
-
-
-
-
-
-
-
