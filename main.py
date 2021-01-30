@@ -26,6 +26,7 @@ Created on Mon Jan 11 23:40:00 2021
 
 import io
 import numpy as np
+import matplotlib.pyplot as plt
 import numpy.ma as ma
 import pandas as pd
 import requests
@@ -68,7 +69,6 @@ df.replace('-', 0., inplace=True)
 keys = df.keys()
 dates = EnumeratedDates(keys[2:])
 
-
 # We're done with data preparation.
 # let's see how it looks like
 # print(df)
@@ -93,11 +93,19 @@ for row in ndata:
 THRESHOLD = 0.8
 # checking score with a  THRESHOlD
 with dates:
-    for i in np.arange(0, 4):
-        if city_models[i].score > THRESHOLD:
-            city_models[i].display(dates.labels)
 
-# 5. Apply calculated regresion model in order to predict the spread
+    fig = plt.figure(figsize=(8,10))
+    fig.suptitle('Infected spreads in most populated cities')
+
+    for i in np.arange(0, 4):
+        # %%
+        if city_models[i].score > THRESHOLD:
+            ax = fig.add_subplot(2, 2, i + 1)
+            city_models[i].display(axe=ax, regressors=dates.labels)
+        # %%
+    plt.show()
+
+# 5. Apply calculated regression model in order to predict the spread
 #       of infected people for each city
 
 

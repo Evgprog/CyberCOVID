@@ -6,7 +6,27 @@ from city_model import  CityModel
 #        y - labels (infected people)
 # Output: regression's parameters
 
-def calculate_regression_params(x, y, name): m
+# class TFLinearRegression:
+#     def __init__(self):
+#         self.m = tf.Variable(0.)
+#         self.b = tf.Variable(0.)
+#
+#     def mse(self, y_true, y_predicted):
+#         return tf.reduce_mean( tf.square(y_true - y_predicted) )
+#
+#     def predict(self, x):
+#         return tf.reduce_sum(self.m * x + self.b)
+#
+#     def update(self, x, y, learning_rate):
+#         with tf.GradientTape() as tape:
+#             loss = self.mse(y, self.predict(x))
+#
+#             gradients  = tape.gradient(loss, [self.m, self.b])
+#
+#             self.m.assigm_sub(learning_rate * gradients[0])
+#             self.b.assign_sub(learning_rate * gradients[1])
+
+def calculate_regression_params(x, y, name):
     from sklearn import linear_model
     from sklearn.model_selection import train_test_split
     model = linear_model.LinearRegression()

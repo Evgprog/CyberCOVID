@@ -13,14 +13,12 @@ class CityModel(CityRawModel):
 
 
 # 1 # linspace data and showing it as a plt
-    def display(self, regressors):
-        pass
-        # plt.figure(figsize=(8,7))
-        # ax = plt.axes()
-        # ax.title(self.name)
-        # ax.scatter(regressors, self.data)
-        # x_new = np.linspace(0, 30, 100)
-        # y_new = self.predict(x_new[:, np.newaxis])
-        # ax.plot(x_new, y_new)
-        # ax.axis('tight')
-        # plt.show(block=True)
+    def display(self, axe, regressors):
+
+        axe.title.set_text(self.name)
+        axe.scatter(regressors, self.data)
+
+        x_new = np.linspace(0, 30, 100)
+        y_new = super().predict(x_new[:, np.newaxis])
+        axe.plot(x_new, y_new, color='red')
+
