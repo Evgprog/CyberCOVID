@@ -8,16 +8,15 @@ from city_model import  CityModel
 
 # class TFLinearRegression:
 #     def __init__(self):
-#         self.m = tf.Variable(0.)
-#         self.b = tf.Variable(0.)
+#         self.m = tf.Variable(0.) #   coefficient variable
+#         self.b = tf.Variable(0.) #  error variable
 #
 #     def mse(self, y_true, y_predicted):
-#         return tf.reduce_mean( tf.square(y_true - y_predicted) )
+#         return tf.reduce_mean( tf.square(y_true - y_predicted) ) #  calculating error size between existin and predicted value
+#     #     def predict(self, x):
+#         return tf.reduce_sum(self.m * x + self.b) # calculating linear formula
 #
-#     def predict(self, x):
-#         return tf.reduce_sum(self.m * x + self.b)
-#
-#     def update(self, x, y, learning_rate):
+#     def update(self, x, y, learning_rate): #
 #         with tf.GradientTape() as tape:
 #             loss = self.mse(y, self.predict(x))
 #
