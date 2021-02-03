@@ -18,6 +18,7 @@
  Using formula identified in the article x35
   The code performs predictions of potential spread of covid 19 in Israil's cities
   The codes's structure consist of the following parts:
+Branch A   
 1. Data upload from a website that contains a history of patients dinamycs  per city
 2. Data  insertion into a pandas dataframework
 3. Cleaning and prepearing of dataframe for analysis
@@ -25,3 +26,5 @@
 5. Creating a trashold for data set on 08 score
 6. Applying models for each city dataset
 
+
+Branch B (with dash)
