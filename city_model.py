@@ -5,11 +5,11 @@ import plotly.graph_objects as go
 
 #CityModel performs regression analysis
 # it receives x(data),y (regression),score  of regression analysis
-# the model has to functions : 1 predict that performs prediction, 2. show regression - shows a graph
+# the model has to functions :  1 predict that performs prediction, 2. show regression - shows a graph
 ## defining self.model as regression model allows us to use regressors
 
 class CityModel(CityRawModel):
-    def __init__(self, city_name, x, y):
+    def __init__(self, city_name, x, y) :
         super().__init__(x, y)
         self.name = city_name[::-1] # Data set is in hebrew from left to right  therefore city_name has to apply -1  order
 

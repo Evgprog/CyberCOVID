@@ -48,24 +48,34 @@ _df = pd.read_csv(io.StringIO(s.decode('utf-8')))
 #2.Prepearing data for analysis all 0
 df = _df.fillna(0)
 # Replacing cells containing "-" with zeros
-df.replace('-', 0., inplace=True)
+df.replace('-', 0., inplace = True)
 # Extracting dates as keys and extracting their indices
 keys = df.keys()
 dates = EnumeratedDates(keys[2:])
 
 # TODO: change np.array to Python list with the following structure
+# df.tolist()
+
+for idx, x in np.ndenumerate(dates.labels):
+    EnumeratedDates = np.append(EnumeratedDates, idx)
 # creating dash : creating list of cities and indices for Combobox
 # { name: 'Tel-Aviv',
 #   rowId: 'from DataFrame
 # }
-city_models = [{
-    "name" : "Jerusalem",
-    "rowId": 0
-},
-{
-    "name": "Tel-Aviv",
-    "rowId": 1
-}]
+city_models =[]
+g =[]
+city_box = df.loc[:,'City']
+for isx, a in np.ndenumerate(city_box):
+    g.append([{ "name": a ,"rowID" : isx}]) # dictionary  inside a list
+city_models = g
+    #     [{
+#     "name" : "Jerusalem",
+#     "rowId": 0
+# },
+# {
+#     "name": "Tel-Aviv",
+#     "rowId": 1
+# }]
 
 app.layout = html.Div(children=[
     html.H1(children='CyberCOVID'),
@@ -100,7 +110,7 @@ def city_changed(row_id):
         fig.layout.title = row[0]
         model.display(fig, regressors=dates)
         return fig
-
+# starting and app for dash
 if __name__ == '__main__':
     app.run_server(debug=True)
 

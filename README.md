@@ -12,12 +12,14 @@
  
  The structure of analysis :
  
- Getting data regarding number of patients by city
- Normalizing data, fixing mistakes
- Creating predictions for spreading rate per city
- Using formula identified in the article x35
-  The code performs predictions of potential spread of covid 19 in Israil's cities
-  The codes's structure consist of the following parts:
+ # Project's aims:
+# Prediction of COVID 19 patients number in Israeli cities.
+# DATA SOURCE:
+# The data set taken from Israeli Health ministry and was uploaded from :
+# https://raw.githubusercontent.com/idandrd/israel-covid19-data/master/CityData.csv
+# Project's value:
+# Early identification potential of Covid 19 spread in certain Israeli city.
+# Earlier detection should allow a more proactive measures to take place in order to stop the spread of Covid 19
 Branch A   
 1. Data upload from a website that contains a history of patients dinamycs  per city
 2. Data  insertion into a pandas dataframework
@@ -28,3 +30,31 @@ Branch A
 
 
 Branch B (with dash)
+
+# Code structure:
+# 1. Getting data regarding number of patients by city from github dataset
+# 2. Normalizing data, fixing mistakes
+# 3. Creating functions for dash, models for dates, regression analysis
+# 4. Creating predictions for spreading rate per city
+# 5. Display the prediction spread by city chosen by user
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
