@@ -66,8 +66,8 @@ city_models =[]
 g =[]
 city_box = df.loc[:,'City']
 for isx, a in np.ndenumerate(city_box):
-    g.append([{ "name": a ,"rowID" : isx}]) # dictionary  inside a list
-city_models = g
+    city_models.append([{ "name": a ,"rowId" : isx}]) # dictionary  inside a list
+
     #     [{
 #     "name" : "Jerusalem",
 #     "rowId": 0
@@ -76,7 +76,6 @@ city_models = g
 #     "name": "Tel-Aviv",
 #     "rowId": 1
 # }]
-
 app.layout = html.Div(children=[
     html.H1(children='CyberCOVID'),
     html.Div([
