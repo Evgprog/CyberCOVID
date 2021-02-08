@@ -2,6 +2,21 @@
 
  ## Project's aims: 
  
+ #CyberCovid
+ # CyberCovid
+
+ ## Project's aims: 
+
+ ##Project's aims: 
+ #CyberCovid
+ # CyberCovid
+
+ ## Project's aims: 
+
+ ##Project's aims: 
+ To allow localizaton of quarantine policy measures due to early identification of covid spread.
+ Currently, a more binary policy is being used where all or no cities are quarantied
+ The measures for infectios deseace prevention were used on the number of admitted patients
  To allow localizaton of quarantine policy measures on cities based on early identification of covid spread.
  Currently, a more binary policy is being used where all or no cities are quarantied.
  The measures for infectios deseace prevention were used on the number of admitted patients.

@@ -47,34 +47,15 @@ print('{} version: {}'.format(pd.__name__, pd.__version__))
 url = "https://raw.githubusercontent.com/idandrd/israel-covid19-data/master/CityData.csv"
 s = requests.get(url).content
 _df = pd.read_csv(io.StringIO(s.decode('utf-8')))
-# 2. Prepare the downloaded data for further analysis
-#
-# We're going to calculate the regression params for each
-#     city (row) in the dataset. The input for regression is
-#      - the set (numpy array) of the infected cases for each date
-#      - the dates as defined in DataFrame's first row.
-#          Note that the dates were downloaded in "dates" format
-#           and in order to serve as such input, the dates' values should be
-#           converted to numbers (see step 2b)
 
-# 2a. Throw out nan values and other mess from the downloaded DataFrame
-#   Thanks to God, Pandas has built-in function for such a purpose
-# Output of Step 2a: df (cleaned/prepared DataFrame)
 df = _df.fillna(0)
 # Replace cells containing "-" with zeros
 df.replace('-', 0., inplace=True)
-# 2b. Prepare the dates obtained from the DataFrame to participate in the regression:
-# just enumerate all the dates, i.e. convert them to the running number
-# Output: enumeratedDates array
+# exctracting dates from dataframe via EnumeratedDates function
 keys = df.keys()
 dates = EnumeratedDates(keys[2:])
+#Defining city _models for later use in regression functions
 
-# We're done with data preparation.
-# let's see how it looks like
-# print(df)
-
-# 4. Calculate the model's parameters for all cities (rows)
-# As an output of this step we have the regression coefficients for each city!!!
 city_models = np.array([])
 ndata = df.to_numpy()
 model=np.array([])
@@ -86,10 +67,7 @@ for row in ndata:
     model = calculate_regression_params(dates.indices, row[2:], row[0])
     city_models = np.append(city_models, model)
 
-#print(city_models)
-# regcalcul=np.array([])
-# regcalcul= np.apply_along_axis(calculate_regression_params, 1, ndata )
-
+# defining 0.8 THRESHOLD score  as a  borderline
 THRESHOLD = 0.8
 # checking score with a  THRESHOlD
 with dates:
@@ -104,15 +82,3 @@ with dates:
             city_models[i].display(axe=ax, regressors=dates.labels)
         # %%
     plt.show()
-
-# 5. Apply calculated regression model in order to predict the spread
-#       of infected people for each city
-
-
-# Never call file with Big letters
-# To Do 1 " requerments for python pushing describes dependencies numpy version
-# To Do 2 class inheretence  name from row (1)
-# To do 3 new class creation logical regression
-# to d 4 saving apply funtion results to array
-# To do score
-# to put function

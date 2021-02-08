@@ -1,5 +1,5 @@
 import numpy as np
-# we transform the dates into index numbers and store them into an array called enumerated dates
+# class EnumeratedDates receives dates and converts them into indexed numbers
 class EnumeratedDates:
         def __init__(self, dates_labels):
             self.labels = dates_labels
