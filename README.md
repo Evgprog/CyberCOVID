@@ -8,8 +8,7 @@
  Risk analysis is done on overall number of patients which were identified
  and earlier detection based on the  prediction of possible number off patients might allow a more proactive measure to take place
  
- ![Covid19git](https://user-images.githubusercontent.com/74383608/106588428-708e5880-6553-11eb-8bf9-462a42890218.png)
- 
+
  The structure of analysis :
  The structure of analysis :
  
