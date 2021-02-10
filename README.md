@@ -16,13 +16,13 @@ The following picture represents the case of four picture
  
  The structure of analysis :
   
-Branch B (with dash)
+Branch A (master) 
+1. Data upload from a website that contains a history of patient’s dynamics per city
+2. Data insertion into a panda’s dataframework
+3. Cleaning and preparing of dataframe for analysis
+4. Creating several models and classes for linear regression analysis and predictions
+5. Creating a threshold for data set on 08 score
+6. Applying models for each city dataset
 
-# Code structure:
-# 1. Getting data regarding number of patients by city from github dataset
-# 2. Normalizing data, fixing mistakes
-# 3. Creating functions for dash, models for dates, regression analysis
-# 4. Creating predictions for spreading rate per city
-# 5. Display the prediction spread by city chosen by user
 
 
