@@ -1,11 +1,9 @@
- # CyberCovid
+ # CyberCovid {"Dash}
 
  ## Project's aims: 
  
- Short Description 
+ Short Description :
  
- 
-
 Current project demonstrates an ability to perform data download, cleaning, choosing machine learning model and its application in real life situation.
 In the following case data based on Covid 19 spread in Israeli cities is utilized in order to perform a prediction of its spread in the future n different cities
 After checking several approaches a logistic regression model was chosen since it was a more fit to follow the data which represented in the cases as a linear growth
@@ -14,23 +12,10 @@ In the following analysis two models of data representation were used:
 -	Display of a specific city prediction upon the selection of a user. Only specific city will be chosen and then displayed via “Dash” application, based upon local host
 
 
-(https://user-images.githubusercontent.com/74383608/107421801-14af6b00-6b23-11eb-9fe4-d5061293034f.PNG)
+![Cappture2](https://user-images.githubusercontent.com/74383608/107421801-14af6b00-6b23-11eb-9fe4-d5061293034f.PNG)
 
-
-
-
-
- The structure of analysis :
- The structure of analysis :
+The structure of analysis :
  
- # Project's aims:
-# Prediction of COVID 19 patients number in Israeli cities.
-# DATA SOURCE:
-# The data set taken from Israeli Health ministry and was uploaded from :
-# https://raw.githubusercontent.com/idandrd/israel-covid19-data/master/CityData.csv
-# Project's value:
-# Early identification potential of Covid 19 spread in certain Israeli city.
-# Earlier detection should allow a more proactive measures to take place in order to stop the spread of Covid 19
 Branch A (master) 
 1. Data upload from a website that contains a history of patient’s dynamics per city
 2. Data insertion into a panda’s dataframework
