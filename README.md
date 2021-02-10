@@ -2,12 +2,23 @@
 
  ## Project's aims: 
  
- To allow localizaton of quarantine policy measures on cities based on early identification of covid spread.
- Currently, a more binary policy is being used where all or no cities are quarantied.
- The measures for infectios deseace prevention were used on the number of admitted patients.
- Risk analysis is done on overall number of patients which were identified
- and earlier detection based on the  prediction of possible number off patients might allow a more proactive measure to take place
+ Short Description 
  
+ 
+
+Current project demonstrates an ability to perform data download, cleaning, choosing machine learning model and its application in real life situation.
+In the following case data based on Covid 19 spread in Israeli cities is utilized in order to perform a prediction of its spread in the future n different cities
+After checking several approaches a logistic regression model was chosen since it was a more fit to follow the data which represented in the cases as a linear growth
+In the following analysis two models of data representation were used:
+-	An internal representation of four cities with the highest model score of patient’s prediction. The branch called “master” showing four cities as an example. In this case prediction model was use for every city and a threshold of 0.8 was used for filtering the data  
+-	Display of a specific city prediction upon the selection of a user. Only specific city will be chosen and then displayed via “Dash” application, based upon local host
+
+
+(https://user-images.githubusercontent.com/74383608/107421801-14af6b00-6b23-11eb-9fe4-d5061293034f.PNG)
+
+
+
+
 
  The structure of analysis :
  The structure of analysis :
