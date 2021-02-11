@@ -1,8 +1,10 @@
  #  CyberCovid (Branch "Dash")
- ##  Disclaimer: This project consists of two independent branches named " Dash " and " Master ". See the section bellow for the description of each one them 
- ## Project's aims: 
+ ##  Disclaimer
+  This project consists of two independent branches named " Dash " and " Master ". 
+  See the section bellow for the description of each one of them.   
+ ## Project's aims
  
- ##Short Description:
+ ## Short Description
  
 This project demonstrates an ability to build a prediction model based upon data downloading, cleaning and choosing a machine learning model and its application in real life situation.
 In the following case, data based on Covid -19 spread in Israeli cities is utilized in order to create a prediction model that could foresee its spread in the different cities.
