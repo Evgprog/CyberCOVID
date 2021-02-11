@@ -7,7 +7,7 @@ Created on Mon Jan 11 23:40:00 2021
 # Project's aims:
 # Prediction of COVID 19 patients number in Israeli cities.
 # DATA SOURCE:
-# The data set taken from Israeli Health ministry and was uploaded from :
+# The data set was uploaded from :
 # https://raw.githubusercontent.com/idandrd/israel-covid19-data/master/CityData.csv
 # Project's value:
 # Early identification potential of Covid 19 spread in certain Israeli city.
