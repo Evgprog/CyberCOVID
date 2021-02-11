@@ -21,7 +21,7 @@ The structure of analysis :
  
 Branch B (with dash)
 
-Code structure:
+## Code structure:
  1. Getting data regarding number of patients by city from github dataset
  2. Normalizing data, fixing mistakes
  3. Creating functions for dash, models for dates, regression analysis
