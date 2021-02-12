@@ -1,7 +1,13 @@
  #  CyberCovid (Branch "Dash")
  ##  Disclaimer
   This project consists of two independent branches named " Dash " and " Master ". 
-  See the section bellow for the description of each one of them.   
+  See the section bellow for the description of each one of them.
+ ## How to use
+   The program starts with "main".
+   The names of functions and models are :" city model ", "enumarated_dates","city_row_model", "regressions".
+   In "Dash" branch there is need to copy a link for HTML into a browser, while in "Master" branch the results are shown automatically.  
+   
+    
  ## Project's aims
  
  ###  Short Description
