@@ -1,5 +1,5 @@
  
-#  CyberCovid (Branch "Dash")
+#  CyberCovid (Branch ,"Master")
  ##  Disclaimer
   This project consists of two independent branches named " Dash " and " Master ". 
   See the section bellow for the description of each one of them. 
