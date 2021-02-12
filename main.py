@@ -8,6 +8,7 @@ Created on Mon Jan 11 23:40:00 2021
 # Getting data regarding number of patients by city
 # Normalizing data, fixing mistakes
 # Creating predictions for spreading rate per city
+# Displaying data of four cities with highest score of desease spread
 
 import io
 import numpy as np
